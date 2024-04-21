@@ -26,10 +26,10 @@ export const Quote = ({ quote, author }: Props) => {
     <div ref={target} className="h-[250vh] relative">
       <motion.div
         style={{ opacity }}
-        className="sticky h-screen flex items-center overflow-hidden justify-center top-0"
+        className="sticky h-screen flex items-center overflow-hidden justify-center top-0 p-10"
       >
-        <blockquote>
-          <p className="text-5xl font-cursive">{quote}</p>
+        <blockquote className="text-center md:text-left">
+          <p className="text-3xl md:text-5xl font-cursive">{quote}</p>
           <footer className="text-muted-foreground text-right">
             - {author}
           </footer>

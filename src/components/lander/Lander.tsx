@@ -79,16 +79,7 @@ export const LanderGallery = ({
         className="flex flex-1 w-fit min-w-max gap-10 p-10"
       >
         {images.map((image, i) => {
-          const start = i / images.length;
-          const end = start + 1 / images.length;
-          return (
-            <LanderGalleryImage
-              key={image.image.src}
-              image={image}
-              range={[start, end]}
-              progress={progress}
-            />
-          );
+          return <LanderGalleryImage key={image.image.src} image={image} />;
         })}
       </motion.div>
     </div>
@@ -97,16 +88,11 @@ export const LanderGallery = ({
 
 export const LanderGalleryImage = ({
   image: { image, title: alt },
-  range,
-  progress,
 }: {
   image: ImageWithAlt;
-  range: [number, number];
-  progress: MotionValue;
 }) => {
-  const opacity = useTransform(progress, range, [1, 0]);
   return (
-    <motion.div style={{ opacity }}>
+    <div>
       <Image
         className="w-auto pointer-events-none object-contain h-64"
         key={image.src}
@@ -114,6 +100,6 @@ export const LanderGalleryImage = ({
         alt={alt}
         placeholder="blur"
       />
-    </motion.div>
+    </div>
   );
 };
